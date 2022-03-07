@@ -1,6 +1,7 @@
 class ConfigDebug():
     # File-based SQL database
-    SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://root:Lsafms01a!@localhost/shop20220128'
+   #  SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://root:Lsafms01a!@localhost/shop20220128'
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://root12345:Hejsan123#@pontus1920.mysql.database.azure.com/webshop4'    # File-based SQL database
     SECRET_KEY = 'SDFA11#'
 
  # Flask-Mail SMTP server settings
