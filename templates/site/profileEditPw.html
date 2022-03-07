@@ -1,0 +1,55 @@
+{% from "_formHelpers.html" import render_field %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/slick.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/slick-theme.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/nouislider.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/font-awesome.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+</head>
+
+<body>
+
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <form method="post" class="">
+                        {{ form.csrf_token }}
+                        <div class="card">
+                        <div class="card-header">
+                            <h1><strong>Edit {{current_user.email}}</strong></h1>
+                        </div>
+                        <div class="card-body card-block">
+                             
+                            {{ render_field(form.password) }}
+                            {{ render_field(form.passwordAgain) }}
+
+    
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Save password and go back to the webshop
+                            </button>
+                            <button type="reset" class="btn btn-danger btn-sm">
+                                <i class="fa fa-ban"></i> Reset the form
+                            </button>
+                            
+                        </div>
+                    </form> 
+                        
+                   
+                    </button>
+                </div>
+            </div>        
+        </div>
+    </div>
+</body>
+</html>

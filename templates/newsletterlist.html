@@ -1,0 +1,96 @@
+
+{% block title %}
+<a href="{{ url_for('product.index' )  }}" class="editbutton">Gå tillbaka</a>
+{% endblock %}
+
+
+{% block content %}
+
+Visar sidan {{ page }} av totalt {{ pages }}
+
+<div class="card">
+    <div class="card-header">
+        <h1>Alla newsletters</h1>
+        Sök: <form method="get">
+                <input type=text placeholder="search" value="{{ q }}" name="q">
+                <input class="btn" type=submit value="Sök">
+            </form>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tr>
+                <th>Id
+                    <a href="{{  url_for('newslettersPage',sortColumn='Id',sortOrder='asc', q=q ) }}">
+                        <i class='bx bx-up-arrow-alt'></i>
+                    </a>
+                    <a href="{{  url_for('newslettersPage',sortColumn='Id',sortOrder='desc',q=q ) }}">
+                        <i class='bx bx-down-arrow-alt' ></i>
+                    </a>
+                </th>
+                <th>Titel
+                    <a href="{{  url_for('newslettersPage',sortColumn='Titel',sortOrder='asc',q=q ) }}">
+                        <i class='bx bx-up-arrow-alt'></i>
+                    </a>
+                    <a href="{{  url_for('newslettersPage',sortColumn='Titel',sortOrder='desc',q=q ) }}">
+                        <i class='bx bx-down-arrow-alt' ></i>
+                    </a>
+                </th>
+                <th>Skickat
+                    <a href="{{  url_for('newslettersPage',sortColumn='Skickat',sortOrder='asc',q=q ) }}">
+                        <i class='bx bx-up-arrow-alt'></i>
+                    </a>
+                    <a href="{{  url_for('newslettersPage',sortColumn='Skickat',sortOrder='desc',q=q ) }}">
+                        <i class='bx bx-down-arrow-alt' ></i>
+                    </a>
+                </th>
+                <th>Redigera
+                    <!-- url for edit newsletter  -->
+                </th>
+                <th></th>
+            </tr>
+            {% for newsletter in allNewsletters %}      
+                <tr>
+                    <td>{{ newsletter.id }}</td>
+                    <td>{{ newsletter.title }}</td>
+                    <td>{{ newsletter.sent }}</td>
+                    <td>
+                        <a href="{{ url_for('newslettersPage', id=newsletter.id )  }}"><i class='bx bx-edit'></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            <footer>
+                <tr>
+                    <td>
+                        {% if has_prev %}
+                            <a class="btn" href="{{ url_for('newsletterPage', page=page-1, sortColumn=sortColumn, sortOrder=sortOrder, q=q ) }}">
+                                Prev                                
+                            </a>
+                        {% endif %}
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    <td>
+                        {% if has_next %}
+                            <a class="btn" href="{{ url_for('newsletterPage', page=page+1, sortColumn=sortColumn, sortOrder=sortOrder,q=q) }}">
+                                Next                                
+                            </a>
+                        {% endif %}
+
+                    </td>
+                </tr>
+            </footer>
+        </table>
+        
+
+
+            <a class="btn" href="{{ url_for('createNewsletterPage')  }}">Skapa nytt newsletter</a>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

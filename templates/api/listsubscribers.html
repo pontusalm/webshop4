@@ -1,0 +1,32 @@
+{% extends "api/baseSubscriber.html" %}
+{% block title %}Start{% endblock %}
+{% block maincontent %}
+<div class="col-md-12">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>email</th>
+        </tr>
+        {% for sub in pagination %}
+        <tr>
+            <td>{{sub.id}}</td>
+            <td>{{sub.email}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                {% if has_prev_page %}
+                <a class="btn btn-primary btn-sm"
+                    href="{{ url_for('apiListSubs.apiGetSubscriberList', top = Amount, skip =startOfList, page=page-1)}}">Previous</a>
+                {% endif %}
+            </td>
+            <td>
+                {% if has_next_page %}
+                <a class="btn btn-primary btn-sm"
+                    href="{{ url_for('apiListSubs.apiGetSubscriberList',  top = Amount, skip =startOfList, page=page+1)}}">Next</a>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

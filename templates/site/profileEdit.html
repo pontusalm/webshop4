@@ -1,0 +1,58 @@
+{% from "_formHelpers.html" import render_field %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/slick.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/slick-theme.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/nouislider.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/font-awesome.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+</head>
+
+<body>
+
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    
+
+                    
+                    <div class="card-header">
+                        <h1><strong>Your Page {{current_user.email}}</strong></h1>
+                    </div>
+                    <div>
+                        <h2>Your information</h2>
+                    </div>
+                    <div>
+                        <ul>
+                            <li></li>
+                            <li>First name: {{current_user.first_name}}</li>
+                            <li>Last name: {{current_user.last_name}}</li>
+                            <li>Email adress: {{current_user.email}}</li>
+
+              
+                        </ul>
+                   
+                    </div>
+                    <a href="{{ url_for('site.profileEditInfo', id=current_user.id )  }}" class="editbutton">Edit information</a>
+                    <div>
+                        <ul>
+                            <li>
+                                
+                                <a href="{{ url_for('product.index' )  }}" class="editbutton">Go back to the webshop</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</body>
+</html>

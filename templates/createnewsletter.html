@@ -1,0 +1,32 @@
+
+{% from "_formHelpers.html" import render_field %}
+{% block title %} 
+Create newsletter
+{% endblock %} 
+
+{% block content %}
+
+<form method="post" class="">
+    {{ form.csrf_token }}
+    <div class="card">
+        <div class="card-header">                               
+        <h1><strong>Skapa nytt newsletter</strong></h1>
+            <div><h2>dfskjn</h2>                        
+                <div class="card-body card-block">
+                {{ render_field(form.newsletterTitle) }}
+                {{ render_field(form.newsletterText) }}
+                
+                    <div class="card-footer">        
+                    <button type="submit" class="editbutton">
+                        <i class="fa fa-dot-circle-o"></i> Spara
+                    </button>
+                                     
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

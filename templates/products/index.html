@@ -1,0 +1,90 @@
+{% extends "baseTemplate.html" %}
+{% block title %}Start{% endblock %}
+{% block maincontent %}
+
+
+<!-- row -->
+<div class="row">
+    <!-- Flash meassages on page from productpages.py-->
+<div class="text-center lead"> 
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %} {% endif %} {% endwith %}
+    </div>
+
+    {% for cat in trendingCategories %}
+        <div class="col-md-4 col-xs-6">
+            <div class="shop">
+                <div class="shop-img" style="height:200px">
+                 </div>
+                <div class="shop-body">
+                    <h3>{{ cat.CategoryName }}<br>Collection</h3>
+                    <a href="{{ url_for('product.category', id=cat.CategoryID)  }}" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    
+</div>
+
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title">Hot products</h3>
+                        <div class="section-nav">
+                            <ul class="section-tab-nav tab-nav">
+                                <li class="active"><a data-toggle="tab" href="#tab1">Latest</a></li>
+                                <li><a data-toggle="tab" href="#tab1">Price</a></li>
+                                <li><a data-toggle="tab" href="#tab1">Name</a></li>
+                                <li><a data-toggle="tab" href="#tab1">Asc</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /section title -->
+            
+                <!-- Products tab & slick -->
+
+                <div class="col-md-12">
+                    
+                    <div class="gallery">
+                    {% for product in products %}
+
+                    <div class="product-box">
+                        <div class="productcontainer">
+                            <img src="https://picsum.photos/300/300?{{ product.ProductID }}" alt="cookies" class="hero-image"/>
+            
+                            <div class="price">$
+                                <div>{{ product.UnitPrice }}</div></div>
+            
+                            <div class="information">
+            
+                                <div class="name">{{ product.ProductName }}</div>
+            
+                                <div class="store">@Model.Color, @Model.Color</div>
+            
+                                <a href="#" class="button">Purchase Product</a>
+            
+                            </div> <!-- end information -->
+                        </div> <!-- end container -->
+                    </div>
+                    
+                                    <!-- /product -->
+                                    {%  endfor  %}
+                </div>
+
+
+
+                            <!-- /tab -->
+                <!-- Products tab & slick -->
+            </div>
+    
+
+
+{% endblock %}
+

@@ -1,0 +1,73 @@
+{% from "_formHelpers.html" import render_field %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/slick.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/slick-theme.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/nouislider.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/font-awesome.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+</head>
+
+
+
+<body>
+
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                      <form method="post" class="">
+                        {{ formInfo.csrf_token }}
+                        <div class="card">
+                            <div class="card-header">                               
+                            <h1><strong>Edit info for {{current_user.email}}</strong></h1>
+                                <div><h2>Your information</h2>                        
+                                    <div class="card-body card-block">
+                                    {{ render_field(formInfo.first_name) }}
+                                    {{ render_field(formInfo.last_name) }}
+                                    
+                                        <div class="card-footer">        
+                                        <button type="submit" class="editbutton">
+                                            <i class="fa fa-dot-circle-o"></i> Save
+                                        </button>
+                                                         
+                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form> 
+
+                    <form method="post" class="">
+                        {{ formEmail.csrf_token }}
+                        <div class="card">                                                
+                            <div class="card-body card-block">
+                            {{ render_field(formEmail.email) }}
+                            
+                            
+                                <div class="card-footer">        
+                                <button type="submit" class="editbutton">
+                                    <i class="fa fa-dot-circle-o"></i> Save
+                                </button>
+                         
+                                </div>
+                            </div>                                           
+                        </div>
+                    </form> 
+
+                    <a href="{{ url_for('product.index' )  }}" class="editbutton">Go back to the webshop</a>
+                    </div>                   
+                </div>
+            </div>        
+        </div>
+    </div>
+</body>
+</html>
