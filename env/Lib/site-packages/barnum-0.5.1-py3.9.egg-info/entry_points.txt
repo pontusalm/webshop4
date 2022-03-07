@@ -1,0 +1,3 @@
+[console_scripts]
+rebuild_barnum_data = barnum.convert_data:rebuild_pkl_file
+
