@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/66472348-e9b3-400a-8945-ecbff54e9079/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/pwebshop",
+    "appService.deploySubpath": "."
+}
